@@ -10,14 +10,14 @@
         </div>
         
         <div class="btn-group">
-            <button type="button" class="create_btn" data-toggle="modal" data-target="#createDstRestrictModal">
+            <button type="button" class="create_btn" data-toggle="modal" data-target="#createDstTimeModal">
                 <i class="fa fa-plus"></i>   Create New
             </button>
             <button type="button" class="filter_btnn">
                 <i class="fa fa-arrow-down" style="opacity: 0.5;"></i>
   Export
             </button>
-            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterDstRestrictModal">
+            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterDstTimeModal">
                 <i class="fa fa-filter"></i>  Filter
             </button>
         </div>
@@ -29,16 +29,19 @@
             <tr>
                 
                 <th>Flight number</th>
+                <th>Time Add(m)</th>
                 <th>Destination</th>
                 <th>From</th>
-                <th>Notification</th>
+                
                 <th>To</th>
+                <th>Add to</th>
                
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="modal" data-target="#editDstRestrictCellModal" data-id="1" data-name="DstRestrict A" data-active="True">
+            <tr data-toggle="modal" data-target="#editDstTimeCellModal" data-id="1" data-name="DstTime A" data-active="True">
                <td>1</td>
+               <td>1.00</td>
                <td>fdsds</td>
                <td>fda</td>
                <td>3</td>
@@ -52,11 +55,11 @@
     <!-- Create DstRestrict Type Modal -->
 
 
-<div class="modal fade" id="createDstRestrictModal" tabindex="-1" aria-labelledby="createDstRestrictModalLabel" aria-hidden="true">
+<div class="modal fade" id="createDstTimeModal" tabindex="-1" aria-labelledby="createDstTimeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createDstRestrictModalLabel">Create DST Restrict</h5>
+                <h5 class="modal-title" id="createDstTimeModalLabel">Create DST Time Addon</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -66,38 +69,42 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                          {{ form.fromdate.label_tag }}
-                          {{ form.fromdate }}
-                        </div>
+                            {{ form.flight_number.label_tag }}
+                            {{ form.flight_number }}
+                          </div>
+                     
+
+                    </div>
+                    <div class="row">
+                     
+                      <div class="col-md-6 mb-3">
+                        {{ form.time_add.label_tag }}
+                        {{ form.time_add }}
+                      </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 mb-3">
-                          {{ form.todate.label_tag }}
-                          {{ form.todate }}
-                        </div>
-                      </div>
+                            {{ form.destination.label_tag }}
+                            {{ form.destination }}
+                          </div>
+                      
+                    </div>
                     <div class="row">
-                      <div class="col-md-12 mb-3">
-                        {{ form.destination.label_tag }}
-                        {{ form.destination }}
+                        <div class="col-md-6 mb-3">
+                            {{ form.fromdate.label_tag }}
+                            {{ form.fromdate }}
+                          </div>
+                      <div class="col-md-6 mb-3">
+                        {{ form.todate.label_tag }}
+                        {{ form.todate }}
                       </div>
                      
                     </div>
-                   
                     <div class="row">
-                     
-                      <div class="col-md-12 mb-3">
-                        <h5 class="text-primary">Flight Number</h5>
-                        <p>Enter flight number for the restriction to appear only on the specific flight</p>
-                        {{ form.flight_number.label_tag }}
-                        {{ form.flight_number }}
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12 mb-3">
-                        <h5  class="text-primary">Notification</h5>
-                        <p>The notification will show to all CRS users.</p>
-                        {{ form.notification.label_tag }}
-                        {{ form.notification }}
-                      </div>
+                        <div class="col-md-6 mb-3">
+                            {{ form.add_to.label_tag }}
+                            {{ form.add_to }}
+                          </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
@@ -105,6 +112,7 @@
                       </div>
                     </div>
                   </form>
+                  
                   
                   
             </div>
@@ -116,11 +124,11 @@
 
 
     <!-- Edit Cell Modal -->
-    <div class="modal fade" id="editDstRestrictCellModal" tabindex="-1" aria-labelledby="editDstRestrictCellModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editDstTimeCellModal" tabindex="-1" aria-labelledby="editDstTimeCellModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editDstRestrictCellModalLabel">Edit DST Restrict</h5>
+                    <h5 class="modal-title" id="editDstTimeCellModalLabel">Edit DST Time Addon</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -130,38 +138,42 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                              {{ form.fromdate.label_tag }}
-                              {{ form.fromdate }}
-                            </div>
+                                {{ form.flight_number.label_tag }}
+                                {{ form.flight_number }}
+                              </div>
+                         
+    
+                        </div>
+                        <div class="row">
+                         
+                          <div class="col-md-6 mb-3">
+                            {{ form.time_add.label_tag }}
+                            {{ form.time_add }}
+                          </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6 mb-3">
-                              {{ form.todate.label_tag }}
-                              {{ form.todate }}
-                            </div>
-                          </div>
+                                {{ form.destination.label_tag }}
+                                {{ form.destination }}
+                              </div>
+                          
+                        </div>
                         <div class="row">
-                          <div class="col-md-12 mb-3">
-                            {{ form.destination.label_tag }}
-                            {{ form.destination }}
+                            <div class="col-md-6 mb-3">
+                                {{ form.fromdate.label_tag }}
+                                {{ form.fromdate }}
+                              </div>
+                          <div class="col-md-6 mb-3">
+                            {{ form.todate.label_tag }}
+                            {{ form.todate }}
                           </div>
                          
                         </div>
-                       
                         <div class="row">
-                         
-                          <div class="col-md-12 mb-3">
-                            <h5 class="text-primary">Flight Number</h5>
-                            <p>Enter flight number for the restriction to appear only on the specific flight</p>
-                            {{ form.flight_number.label_tag }}
-                            {{ form.flight_number }}
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <h5  class="text-primary">Notification</h5>
-                            <p>The notification will show to all CRS users.</p>
-                            {{ form.notification.label_tag }}
-                            {{ form.notification }}
-                          </div>
+                            <div class="col-md-6 mb-3">
+                                {{ form.add_to.label_tag }}
+                                {{ form.add_to }}
+                              </div>
                         </div>
                         <div class="row">
                           <div class="col-md-12">
@@ -177,17 +189,17 @@
     </div>
 </div>
 <!--filter-->
-<div class="modal fade" id="filterDstRestrictModal" tabindex="-1" aria-labelledby="filterDstRestrictModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterDstTimeModal" tabindex="-1" aria-labelledby="filterDstTimeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterDstRestrictModalLabel">Filter DST Restrict</h5>
+                <h5 class="modal-title" id="filterDstTimeModalLabel">Filter DST Time Addon</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="filterDstRestrictForm" method="get" action="">
+                <form id="filterDstTimeForm" method="get" action="">
                     <div class="form-group">
                         <div class="row mb-3">
                             <label for="filterActiveStatus1" class="col-form-label col-4">Flight number</label>
@@ -204,22 +216,17 @@
                         </div>
                 
                         <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Destination</label>
+                            <label for="filterActiveStatus1" class="col-form-label col-4">Time add(m)</label>
                             <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
                                     <option value="">equal</option>
-                                    <option value="true">Active</option>
-                                    <option value="false">Inactive</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus2" name="active_status2">
-                                    <option value="">All</option>
-                                    <option value="true">Active</option>
-                                    <option value="false">Inactive</option>
-                                </select>
-                            </div>
-                        </div>
+                            <input type="text" id="filterNotification" name="notification" class="form-control">
+                        </div></div>
                         <div class="row mb-3">
                             <label for="filterSortBy1" class="col-form-label col-4"> From</label>
                             <div class="col-4">
@@ -248,19 +255,41 @@
                         </div>
                 
                         <div class="row mb-3">
-                            <label for="filterFromDate" class="col-form-label col-4">Notification</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">equal</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                            <input type="text" id="filterNotification" name="notification" class="form-control">
+                            <label for="filterFromDate" class="col-form-label col-4">Destination</label>
+                            
+                        <div class="col-4">
+                            <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                                <option value="">equal</option>
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-control" id="filterActiveStatus2" name="active_status2">
+                                <option value="">All</option>
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
                         </div>
                         </div>
-                
+                        <div class="row mb-3">
+                            <label for="filterFromDate" class="col-form-label col-4">Add to</label>
+                            
+                        <div class="col-4">
+                            <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                                <option value="">equal</option>
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <select class="form-control" id="filterActiveStatus2" name="active_status2">
+                                <option value="">All</option>
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                        </div>
+                        </div>
                       
                       
                    
@@ -294,7 +323,7 @@
 <script>
     // JavaScript for handling modal interactions
     
-    // Function to show or hide the service load details table
+    // Function to show or hide the DstTime load details table
     $('#toggleDstRestrictDetails').on('click', function() {
         $('#DstRestrictDetailsTable').toggle();
         

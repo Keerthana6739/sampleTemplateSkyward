@@ -18,6 +18,15 @@ urlpatterns = [
     path('savedroutes',savedroutes,name='savedroutes'),
     path('dstnotifications',dstnotifications,name='dstnotifications'),
     path('dstrestrict',dstrestrict,name='dstrestrict'),
+    path('dsttimeaddon',dsttimeaddon,name='dsttimeaddon'),
+    path('acavailability',acavailability,name='acavailability'),
+    path('acavailabilitytype',acavailabilitytype,name='acavailabilitytype'),
+    path('ssr',ssr,name='ssr'),
+    path('queues',queues,name='queues'),
+    path('destination',destination,name='destination'),
+    path('createpage',createpage,name='createpage'),
+    path('edit',edit,name='edit'),
+  
   
 
 

@@ -10,14 +10,14 @@
         </div>
         
         <div class="btn-group">
-            <button type="button" class="create_btn" data-toggle="modal" data-target="#createServiceLoadModal">
+            <button type="button" class="create_btn" data-toggle="modal" data-target="#createServiceRoutesModal">
                 <i class="fa fa-plus"></i>   Create New
             </button>
             <button type="button" class="filter_btnn">
                 <i class="fa fa-arrow-down" style="opacity: 0.5;"></i>
   Export
             </button>
-            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterAircraftModal">
+            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterServiceRoutesModal">
                 <i class="fa fa-filter"></i>  Filter
             </button>
         </div>
@@ -35,14 +35,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="modal" data-target="#editServiceCellModal" data-id="1" data-name="Serviceload A" data-active="True">
+            <tr data-toggle="modal" data-target="#editServiceRoutesCellModal" data-id="1" data-name="Serviceload A" data-active="True">
                 <td><input type="checkbox"></td>
                 <td>1</td>
                 <td>bb service load</td>
                 <td>4</td>
                 <td>6</td>
             </tr>
-            <tr data-toggle="modal" data-target="#editServiceCellModal" data-id="2" data-name="Serviceload B" data-active="False">
+            <tr data-toggle="modal" data-target="#editServiceRoutesCellModal" data-id="2" data-name="Serviceload B" data-active="False">
                 <td><input type="checkbox"   ></td>
                 <td>7</td>
                 <td>bb service load</td>
@@ -56,11 +56,11 @@
     <!-- Create Aircraft Type Modal -->
 
 
-<div class="modal fade" id="createServiceLoadModal" tabindex="-1" aria-labelledby="createServiceLoadModalLabel" aria-hidden="true">
+<div class="modal fade" id="createServiceRoutesModal" tabindex="-1" aria-labelledby="createServiceRoutesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createServiceLoadModalLabel">Create Saved Routes</h5>
+                <h5 class="modal-title" id="createServiceRoutesModalLabel">Create Saved Routes</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -129,11 +129,11 @@
 
 
     <!-- Edit Cell Modal -->
-    <div class="modal fade" id="editServiceCellModal" tabindex="-1" aria-labelledby="editServiceCellModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editServiceRoutesCellModal" tabindex="-1" aria-labelledby="editServiceRoutesCellModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editCellModalLabel">Edit Saved Routes</h5>
+                    <h5 class="modal-title" id="editServiceRoutesCellModalLabel">Edit Saved Routes</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -199,17 +199,17 @@
     </div>
 </div>
 <!--filter-->
-<div class="modal fade" id="filterAircraftModal" tabindex="-1" aria-labelledby="filterAircraftModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterServiceRoutesModal" tabindex="-1" aria-labelledby="filterServiceRoutesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterAircraftModalLabel">Filter Saved Routes</h5>
+                <h5 class="modal-title" id="filterServiceRoutesModalLabel">Filter Saved Routes</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="filterAircraftForm" method="get" action="">
+                <form id="filterServiceRoutesForm" method="get" action="">
                     <div class="form-group">
                         <div class="row mb-3">
                             <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
@@ -321,12 +321,12 @@
                             <h6>Filter Name:</h6>
                             <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
                             <input type="text" class="form-control w-50" name="filter_name">
-                            <button type="submit" class="btn btn-primary mt-2">Save Filter</button>
+                            <button type="submit" class="save_btnn">Save Filter</button>
                         </div>
                 
                         <div class="mt-3">
-                            <button type="reset" class="btn btn-secondary">Clear Filter</button>
-                            <button type="submit" class="btn btn-secondary">Quick Filter</button>
+                            <button type="reset" class="cl_btn">Clear Filter</button>
+                            <button type="submit" class="fil_btn">Quick Filter</button>
                         </div>
                     </div>
                 </form>

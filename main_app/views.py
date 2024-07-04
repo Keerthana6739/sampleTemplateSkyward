@@ -68,3 +68,34 @@ def dstrestrict(request):
     form=DSTRestrictForm()
     return render(request, 'OperationAdmin/dstrestrict.html',{'form':form})
 
+def dsttimeaddon(request):
+    form=DSTTimeAddonForm()
+    return render(request, 'OperationAdmin/dsttimeaddon.html',{'form':form})
+
+def acavailability(request):
+    form=AcAvailabilityForm()
+    return render(request, 'OperationAdmin/acavailability.html',{'form':form})
+
+def acavailabilitytype(request):
+    form=AcAvailabilityTypeForm()
+    return render(request, 'OperationAdmin/acavailabilitytype.html',{'form':form})
+
+def ssr(request):
+    form=SpecialServicesForm()
+    return render(request, 'OperationAdmin/ssr.html',{'form':form})
+
+def queues(request):
+    form=QueuesForm()
+    return render(request, 'OperationAdmin/queues.html',{'form':form})
+
+def destination(request):
+    form=DestinationForm()
+    return render(request, 'OperationAdmin/destination.html',{'form':form})
+
+def createpage(request):
+    form=DestinationForm()
+    return render(request, 'OperationAdmin/createpage.html',{'form':form})
+
+def edit(request):
+    form=DestinationForm()
+    return render(request, 'OperationAdmin/edit.html',{'form':form})

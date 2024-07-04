@@ -10,14 +10,14 @@
         </div>
         
         <div class="btn-group">
-            <button type="button" class="create_btn" data-toggle="modal" data-target="#createServiceLoadModal">
+            <button type="button" class="create_btn" data-toggle="modal" data-target="#createDstNotificationModal">
                 <i class="fa fa-plus"></i>   Create New
             </button>
             <button type="button" class="filter_btnn">
                 <i class="fa fa-arrow-down" style="opacity: 0.5;"></i>
   Export
             </button>
-            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterAircraftModal">
+            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterDstNotificationModal">
                 <i class="fa fa-filter"></i>  Filter
             </button>
         </div>
@@ -41,7 +41,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="modal" data-target="#editServiceCellModal" data-id="1" data-name="Serviceload A" data-active="True">
+            <tr data-toggle="modal" data-target="#editDstNotificationCellModal" data-id="1" data-name="DstNotification A" data-active="True">
                 <td><input type="checkbox"></td>
                 <td>Both origin</td>
                 <td>Vilnius</td>
@@ -55,7 +55,7 @@
                 <td><input type="checkbox"></td>
 
             </tr>
-            <tr data-toggle="modal" data-target="#editServiceCellModal" data-id="2" data-name="Serviceload B" data-active="False">
+            <tr data-toggle="modal" data-target="#editDstNotificationCellModal" data-id="2" data-name="DstNotification B" data-active="False">
                 <td><input type="checkbox"></td>
                 <td>Both origin</td>
                 <td>Vilnius</td>
@@ -75,11 +75,11 @@
     <!-- Create Aircraft Type Modal -->
 
 
-<div class="modal fade" id="createServiceLoadModal" tabindex="-1" aria-labelledby="createServiceLoadModalLabel" aria-hidden="true">
+<div class="modal fade" id="createDstNotificationModal" tabindex="-1" aria-labelledby="createDstNotificationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createServiceLoadModalLabel">Create DST Notifications</h5>
+                <h5 class="modal-title" id="createDstNotificationModalLabel">Create DST Notifications</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -170,7 +170,7 @@
                     
                     <div class="row">
                       <div class="col-md-12">
-                        <button type="submit" class="save_btnn">Submit</button>
+                        <button type="submit" class="save_btnn">Save</button>
                       </div>
                     </div>
                   </form>
@@ -184,11 +184,11 @@
 
 
     <!-- Edit Cell Modal -->
-    <div class="modal fade" id="editServiceCellModal" tabindex="-1" aria-labelledby="editServiceCellModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editDstNotificationCellModal" tabindex="-1" aria-labelledby="editDstNotificationCellModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editCellModalLabel">Edit DST Notifications</h5>
+                    <h5 class="modal-title" id="editDstNotificationCellModalLabel">Edit DST Notifications</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -289,17 +289,17 @@
     </div>
 </div>
 <!--filter-->
-<div class="modal fade" id="filterAircraftModal" tabindex="-1" aria-labelledby="filterAircraftModalLabel" aria-hidden="true">
+<div class="modal fade" id="filterDstNotificationModal" tabindex="-1" aria-labelledby="filterDstNotificationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="filterAircraftModalLabel">Filter DST Notifications</h5>
+                <h5 class="modal-title" id="filterDstNotificationModalLabel">Filter DST Notifications</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="filterAircraftForm" method="get" action="">
+                <form id="filterDstNotificationForm" method="get" action="">
                     <div class="form-group">
                         <div class="row mb-3">
                             <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
@@ -353,15 +353,16 @@
                                     <option value="">equal</option>
                                     <option value="name_asc">Name (A-Z)</option>
                                     <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
+                                </select> </div>
+                                <div class="col-4">
+                           
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
                         </div>
-                
+                    </div>
                         <div class="row mb-3">
                             <label for="filterToDate" class="col-form-label col-4">Show on</label>
                             <div class="col-4">
@@ -371,12 +372,13 @@
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
+                            <div class="col-4">
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
-                        </div>
+                        </div></div>
                 
                         <div class="row mb-3">
                             <label for="filterACType" class="col-form-label col-4">Show on seat control</label>
@@ -419,11 +421,12 @@
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
+                            <div class="col-4">
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
-                            </select>
+                            </select></div>
                         </div>
                         <div class="row mb-3">
                             <label for="filterHours" class="col-form-label col-4">PNR Screen</label>
@@ -434,12 +437,13 @@
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
+                            <div class="col-4">
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
-                        </div>
+                        </div></div>
                         <div class="row mb-3">
                             <label for="filterHours" class="col-form-label col-4">Agents CRS availability screen</label>
                             <div class="col-4">
@@ -449,12 +453,13 @@
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
+                            <div class="col-4">
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
-                        </div>
+                        </div> </div>
                         <div class="row mb-3">
                             <label for="filterHours" class="col-form-label col-4">Users availability screen</label>
                             <div class="col-4">
@@ -464,23 +469,24 @@
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
+                            <div class="col-4">
                             <select class="form-control" id="filterACType" name="ac_type">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
-                        </div>
+                        </div></div>
                 
                         <div class="mt-5">
                             <h6>Filter Name:</h6>
                             <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
                             <input type="text" class="form-control w-50" name="filter_name">
-                            <button type="submit" class="btn btn-primary mt-2">Save Filter</button>
+                            <button type="submit" class="save_btnn">Save Filter</button>
                         </div>
                 
                         <div class="mt-3">
-                            <button type="reset" class="filter_btnn">Clear Filter</button>
-                            <button type="submit" class="filter_btnn">Quick Filter</button>
+                            <button type="reset" class="cl_btn">Clear Filter</button>
+                            <button type="submit" class="fil_btn">Quick Filter</button>
                         </div>
                     </div>
                 </form>
