@@ -243,26 +243,30 @@
 </div>
 <!--filter-->
 <div class="modal fade" id="filterServiceModal" tabindex="-1" aria-labelledby="filterServiceModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+
                 <h5 class="modal-title" id="filterServiceModalLabel">Filter Service Loads</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
+                
                 <form id="filterServiceForm" method="get" action="">
                     <div class="">
+                        <div class="row">
+                            <div class="col-md-6">
                         <label for="filterActiveStatus">Service load active</label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                         <select class="form-control" id="filterActiveStatus" name="active_status">
                             <option value="">equal</option>
                             <option value="true">Active</option>
                             <option value="false">Inactive</option>
                         </select></div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <select class="form-control" id="filterActiveStatus" name="active_status">
                                 <option value="">All</option>
                                 <option value="true">Active</option>
@@ -271,69 +275,77 @@
     
 
                     </div>
-                    </div>
+                    
                     <div class="">
                         <label for="filterSortBy">Service load name</label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                         <select class="form-control" id="filterSortBy" name="sort_by">
                             <option value="">like</option>
                             <option value="name_asc">Name (A-Z)</option>
                             <option value="name_desc">Name (Z-A)</option>
                         </select></div>
-                        <div class="col-4">
-                            <input type='text'></div>
+                        <div class="col-6">
+                            <input type='text' class="form-control"></div>
                     </div>
                     </div>
                     <div class="">
                         <label for="filterSortBy">Service Qty</label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                         <select class="form-control" id="filterSortBy" name="sort_by">
                             <option value="">equal</option>
                             <option value="name_asc">Name (A-Z)</option>
                             <option value="name_desc">Name (Z-A)</option>
                         </select></div>
-                        <div class="col-4">
-                            <input type='text'></div>
+                        <div class="col-6">
+                            <input type='text' class="form-control"></div>
                     </div>
-                    </div>
-                    <div class="">
+                    </div></div>
+                    <div class="col-md-6">
                         <label for="filterSortBy">Max Infants</label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                         <select class="form-control" id="filterSortBy" name="sort_by">
                             <option value="">equal</option>
                             <option value="name_asc">Name (A-Z)</option>
                             <option value="name_desc">Name (Z-A)</option>
                         </select></div>
-                        <div class="col-4">
-                            <input type='text'></div>
+                        <div class="col-6">
+                            <input type='text' class="form-control"></div>
                     </div>
-                    </div>
+                 
                     <div class="">
                         <label for="filterSortBy">Max children</label>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-6">
                         <select class="form-control" id="filterSortBy" name="sort_by">
                             <option value="">equal</option>
                             <option value="name_asc">Name (A-Z)</option>
                             <option value="name_desc">Name (Z-A)</option>
                         </select></div>
-                        <div class="col-4">
-                            <input type='text'></div>
+                        <div class="col-6">
+                            <input type='text' class="form-control"></div>
                     </div>
+                    </div></div>
+                    <div class="row ml-2">
+                        <div class="col-md-8">
+                            <h6>Filter Name:</h6>
+                            <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
+                            <div class="row ">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" name="filter_name">
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="save_btnn mt-0">Save Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4 ">
+                            <button type="reset" class="cl_btn ">Clear Filter</button>
+                            <button type="submit" class="fil_btn">Quick Filter</button>
+                        </div>
                     </div>
-                    <div class="mt-5">
-                        <h6>Filter Name:</h6>
-                        <p>If you wish to save this filter,Write the name of the filter here and click'Save filter'</p>
-                        <input type="text" class="w-50" >
-                    
-                    <button type="submit" class="save_btnn">Save Filter</button>
-                </div>
-                <div>
-                    <button type="submit" class="cl_btn">Clear Filter</button>
-                    <button type="submit" class="fil_btn">Quick Filter</button>
                 </div>
                 </form>
             </div>

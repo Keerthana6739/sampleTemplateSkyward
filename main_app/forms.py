@@ -113,42 +113,42 @@ class DSTNotificationsForm(forms.Form):
     )
     dstnotification_id = forms.CharField(
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
     aircraft_id = forms.ChoiceField(
         choices=[('', 'Select Aircraft')] ,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     destination = forms.ChoiceField(
         choices=[('', 'Select Destination')] ,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     service_from = forms.DateField(
-        widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
+        widget=forms.DateInput(attrs={'class': 'form-control form-control-sm', 'type': 'date'})
     )
     service_to = forms.DateField(
-        widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
+        widget=forms.DateInput(attrs={'class': 'form-control form-control-sm', 'type': 'date'})
     )
     country = forms.ChoiceField(
         choices=[('', 'Select Country')] ,
         required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     showon = forms.ChoiceField(
         
         required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     notification = forms.CharField(
         max_length=250,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
     color = forms.CharField(
         max_length=250,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
     font_size = forms.IntegerField(
-        widget=forms.NumberInput(attrs={'class': 'form-control'})
+        widget=forms.NumberInput(attrs={'class': 'form-control form-control-sm'})
     )
     bold = forms.BooleanField(
         required=False,
@@ -182,33 +182,33 @@ class DSTNotificationsForm(forms.Form):
 class DSTRestrictForm(forms.Form):
     destination= forms.ChoiceField(
         choices=[('', 'Select Destination')] ,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     dstrestrict_id = forms.CharField(
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
     fromdate = forms.DateField(
         required=False,
-        widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
+        widget=forms.DateInput(attrs={'class': 'form-control form-control-sm', 'type': 'date'})
     )
     todate = forms.DateField(
-        widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
+        widget=forms.DateInput(attrs={'class': 'form-control form-control-sm', 'type': 'date'})
     )
     country = forms.ChoiceField(
         choices=[('', 'Select Country')] ,
         required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
     )
     flight_number = forms.CharField(
         max_length=250,
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
     notification = forms.CharField(
         max_length=250,
         required=False,
-        widget=forms.TextInput(attrs={'class': 'form-control'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
     )
 
 class DSTTimeAddonForm(forms.Form):

@@ -62,20 +62,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" class="container">
+                <form method="post" class="container-fluid">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6">
                           {{ form.fromdate.label_tag }}
                           {{ form.fromdate }}
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6">
                           {{ form.todate.label_tag }}
                           {{ form.todate }}
                         </div>
                       </div>
                     <div class="row">
-                      <div class="col-md-12 mb-3">
+                      <div class="col-md-12">
                         {{ form.destination.label_tag }}
                         {{ form.destination }}
                       </div>
@@ -84,16 +84,16 @@
                    
                     <div class="row">
                      
-                      <div class="col-md-12 mb-3">
-                        <h5 class="text-primary">Flight Number</h5>
+                      <div class="col-md-12">
+                        <h6 class="text-primary">Flight Number</h6>
                         <p>Enter flight number for the restriction to appear only on the specific flight</p>
                         {{ form.flight_number.label_tag }}
                         {{ form.flight_number }}
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-12 mb-3">
-                        <h5  class="text-primary">Notification</h5>
+                      <div class="col-md-12">
+                        <h6  class="text-primary">Notification</h6>
                         <p>The notification will show to all CRS users.</p>
                         {{ form.notification.label_tag }}
                         {{ form.notification }}
@@ -117,9 +117,10 @@
 
     <!-- Edit Cell Modal -->
     <div class="modal fade" id="editDstRestrictCellModal" tabindex="-1" aria-labelledby="editDstRestrictCellModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
+    
                     <h5 class="modal-title" id="editDstRestrictCellModalLabel">Edit DST Restrict</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -129,17 +130,17 @@
                     <form method="post" class="container">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6">
                               {{ form.fromdate.label_tag }}
                               {{ form.fromdate }}
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-6">
                               {{ form.todate.label_tag }}
                               {{ form.todate }}
                             </div>
                           </div>
                         <div class="row">
-                          <div class="col-md-12 mb-3">
+                          <div class="col-md-12">
                             {{ form.destination.label_tag }}
                             {{ form.destination }}
                           </div>
@@ -148,16 +149,16 @@
                        
                         <div class="row">
                          
-                          <div class="col-md-12 mb-3">
-                            <h5 class="text-primary">Flight Number</h5>
+                          <div class="col-md-12">
+                            <h6 class="text-primary">Flight Number</h6>
                             <p>Enter flight number for the restriction to appear only on the specific flight</p>
                             {{ form.flight_number.label_tag }}
                             {{ form.flight_number }}
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <h5  class="text-primary">Notification</h5>
+                          <div class="col-md-12">
+                            <h6 class="text-primary">Notification</h6>
                             <p>The notification will show to all CRS users.</p>
                             {{ form.notification.label_tag }}
                             {{ form.notification }}
@@ -178,9 +179,10 @@
 </div>
 <!--filter-->
 <div class="modal fade" id="filterDstRestrictModal" tabindex="-1" aria-labelledby="filterDstRestrictModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+
                 <h5 class="modal-title" id="filterDstRestrictModalLabel">Filter DST Restrict</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -188,76 +190,79 @@
             </div>
             <div class="modal-body">
                 <form id="filterDstRestrictForm" method="get" action="">
-                    <div class="form-group">
-                        <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Flight number</label>
+                    <div class="">
+                        <label for="filterActiveStatus1" class="col-form-label col-4">Flight number</label>
+                        <div class="row">
+                           
                             <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                                <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
                                     <option value="">equal</option>
                                     <option value="true">Active</option>
                                     <option value="false">Inactive</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <input type="text" id="filterNumber" name="number" class="form-control">
+                                <input type="text" id="filterNumber" name="number" class="form-control form-control-sm">
                             </div>
                         </div>
-                
-                        <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Destination</label>
+                        <label for="filterActiveStatus1" class="col-form-label col-4">Destination</label>
+                        <div class="row ">
+                           
                             <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                                <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
                                     <option value="">equal</option>
                                     <option value="true">Active</option>
                                     <option value="false">Inactive</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus2" name="active_status2">
+                                <select class="form-control form-control-sm" id="filterActiveStatus2" name="active_status2">
                                     <option value="">All</option>
                                     <option value="true">Active</option>
                                     <option value="false">Inactive</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="filterSortBy1" class="col-form-label col-4"> From</label>
+                        <label for="filterSortBy1" class="col-form-label col-4"> From</label>
+                        <div class="row ">
+                           
                             <div class="col-4">
-                                <select class="form-control" id="filterSortBy1" name="sort_by1">
+                                <select class="form-control form-control-sm" id="filterSortBy1" name="sort_by1">
                                     <option value="">equal</option>
                                     <option value="name_asc">Name (A-Z)</option>
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <input type="date" id="filterFromDate" name="from_date" class="form-control">
+                                <input type="date" id="filterFromDate" name="from_date" class="form-control form-control-sm">
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="filterSortBy1" class="col-form-label col-4">To</label>
+                        <label for="filterSortBy1" class="col-form-label col-4">To</label>
+                        <div class="row ">
+                         
                             <div class="col-4">
-                                <select class="form-control" id="filterSortBy1" name="sort_by1">
+                                <select class="form-control form-control-sm" id="filterSortBy1" name="sort_by1">
                                     <option value="">equal</option>
                                     <option value="name_asc">Name (A-Z)</option>
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                                <input type="date" id="filterFromDate" name="from_date" class="form-control">
+                                <input type="date" id="filterFromDate" name="from_date" class="form-control form-control-sm">
                             </div>
                         </div>
-                
-                        <div class="row mb-3">
-                            <label for="filterFromDate" class="col-form-label col-4">Notification</label>
+                        <label for="filterFromDate" class="col-form-label col-4">Notification</label>
+                        <div class="row ">
+                           
                             <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
                                     <option value="">equal</option>
                                     <option value="name_asc">Name (A-Z)</option>
                                     <option value="name_desc">Name (Z-A)</option>
                                 </select>
                             </div>
                             <div class="col-4">
-                            <input type="text" id="filterNotification" name="notification" class="form-control">
+                            <input type="text" id="filterNotification" name="notification" class="form-control form-control-sm">
                         </div>
                         </div>
                 
@@ -267,16 +272,23 @@
                     
                         
                 
-                        <div class="mt-5">
-                            <h6>Filter Name:</h6>
-                            <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
-                            <input type="text" class="form-control w-50" name="filter_name">
-                            <button type="submit" class="save_btnn">Save Filter</button>
-                        </div>
-                
-                        <div class="mt-3">
-                            <button type="reset" class="cl_btn">Clear Filter</button>
-                            <button type="submit" class="fil_btn">Quick Filter</button>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Filter Name:</h6>
+                                <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" name="filter_name">
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="submit" class="save_btnn mt-0">Save Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button type="reset" class="cl_btn ">Clear Filter</button>
+                                <button type="submit" class="fil_btn">Quick Filter</button>
+                            </div>
                         </div>
                     </div>
                 </form>

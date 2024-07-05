@@ -26,6 +26,7 @@ urlpatterns = [
     path('destination',destination,name='destination'),
     path('createpage',createpage,name='createpage'),
     path('edit',edit,name='edit'),
+    
   
   
 

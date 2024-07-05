@@ -24,7 +24,7 @@
     </div>
 
     <!-- Table -->
-    <table class="table table-hover">
+    <table class="table table-hover" id='tableID'> 
         <thead >
             <tr>
                 <th>Aircraft active</th>
@@ -36,23 +36,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="modal" data-target="#editCellModal" data-id="1" data-name="Aircraft A" data-active="True">
-                <td><input type="checkbox"></td>
-                <td><i class="fa fa-check" style="color: #00d595;"></i></td>
-                <td><i class="fa fa-times" style="color: #ff5c90;"></i>
-                </td>
-                <td>0</td>
-                <td>DHC6-A</td>
-                <td></td>
+            {% for data in aircraft %}
+            <tr class='text-center' data-url="{% url 'updateaircraft' data.id %}">
+                <td>{% if data.status == True %}<i class="fa fa-check" style="color: #00d595;font-weight: lighter;"></i>{% else %}<i class="fa fa-times" style="color: #ff5c90;font-weight: lighter;"></i>
+                    {% endif %}</td>
+                <td>{{data.aircraft_capacity}}</td>
+                <td>{{data.aircraft_registration}}</td>
+                <td>{{data.max_cargo_weight}}</td>
+                <td>{{data.aircraft_type.name}}</td>
+                <td>{{data.seatmap.name}}</td>
             </tr>
-            <tr data-toggle="modal" data-target="#editCellModal" data-id="2" data-name="Aircraft B" data-active="False">
-                <td><input type="checkbox"></td>
-                <td>12</td>
-                <td>DHC6</td>
-                <td>0</td>
-                <td>DHC6-A</td>
-                <td></td>
-            </tr>
+            {%  endfor %}
            
         </tbody>
     </table>
@@ -70,29 +64,30 @@
             </div>
            <div class="container mt-5">
        
-        <form method="post" novalidate>
+        <form method="post" novalidate action="{% url 'addaircraft'%}">
             {% csrf_token %}
         
                <div class="row mb-3">
                      <div class="form-check">
                         <label class="form-check-label" for="createAircraftActive">Aircraft active</label>
-                        <input type="checkbox" class="form-check-input active-box" id="createAircraftActive" name="active">
+                        {{form.status}}
+                        {% comment %} <input type="checkbox" class="form-check-input active-box" id="createAircraftActive" name="active"> {% endcomment %}
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label for="{{ form.aircraft_registration.id_for_label }}">Aircraft Registration</label>
+                        <label for="{{ form.registration.id_for_label }}">Aircraft Registration</label>
                     </div>
                     <div class="col-md-8">
-                        {{ form.aircraft_registration }}
+                        {{ form.registration }}
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label for="{{ form.aircraft_capacity.id_for_label }}">Aircraft Capacity</label>
+                        <label for="{{ form.capacity.id_for_label }}">Aircraft Capacity</label>
                     </div>
                     <div class="col-md-8">
-                        {{ form.aircraft_capacity }}
+                        {{ form.capacity }}
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -100,7 +95,11 @@
                         <label for="{{ form.aircraft_type.id_for_label }}">Aircraft Type</label>
                     </div>
                     <div class="col-md-8">
-                        {{ form.aircraft_type }}
+                        <select class="form-control" id="type" name="type">
+                            {% for data in aircraftresponse %}
+                            <option value="{{data.id}}">{{data.name}}</option>
+                            {% endfor %}
+                          </select>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -108,7 +107,11 @@
                         <label for="{{ form.seatmap.id_for_label }}">Seat Map</label>
                     </div>
                     <div class="col-md-8">
-                        {{ form.seatmap }}
+                        <select class="form-control" id="seatmap" name="seatmap">
+                            {% for data in seatmapresponse %}
+                            <option value="{{data.id}}">{{data.name}}</option>
+                            {% endfor %}
+                          </select>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -138,7 +141,7 @@
     </div>
 </div>
 
-
+{% comment %} 
     <!-- Edit Cell Modal -->
     <div class="modal fade" id="editCellModal" tabindex="-1" aria-labelledby="editCellModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -214,7 +217,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 <!--filter-->
 <div class="modal fade" id="filterAircraftModal" tabindex="-1" aria-labelledby="filterAircraftModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -339,6 +342,8 @@
 
 {% endblock %}
 {% block script_block %}
+
+
 <script>
     $('#editCellModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);

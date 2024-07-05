@@ -12,7 +12,7 @@
         </div>
         
         <div class="btn-group">
-            <a href="createpage.html">
+            <a href=" {% url 'createpage' %}">
             <button type="button" class="create_btn"  >
                 <i class="fa fa-plus"></i>   Create New
             </button></a>
@@ -20,7 +20,7 @@
                 <i class="fa fa-arrow-down" style="opacity: 0.5;"></i>
   Export
             </button>
-            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterDestinationModal" href="edit.html">
+            <button type="button" class="filter_btnn" data-toggle="modal" data-target="#filterDestinationModal" >
                 <i class="fa fa-filter"></i>  Filter
             </button>
         </div>
@@ -43,7 +43,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr data-toggle="modal"  data-active="True" data-href="edit.html">
+            <tr data-url="{% url 'edit' %}">
                 <td>Aircraft A</td>
                 <td>true</td>
                 <td>1</td>
@@ -323,10 +323,10 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const rows = document.querySelectorAll("tr[data-href]");
+        const rows = document.querySelectorAll("tr[data-url]");
         rows.forEach(row => {
             row.addEventListener("click", function() {
-                window.location.href = this.dataset.href;
+                window.location.href = this.dataset.url;
             });
         });
     });

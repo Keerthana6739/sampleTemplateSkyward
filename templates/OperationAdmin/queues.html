@@ -194,9 +194,10 @@
 </div>
 <!--filter-->
 <div class="modal fade" id="filterQueuesModal" tabindex="-1" aria-labelledby="filterQueuesModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+
                 <h5 class="modal-title" id="filterQueuesModalLabel">Filter Queues</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -229,17 +230,24 @@
                       
                       
                 
-                        <div class="mt-5">
-                            <h6>Filter Name:</h6>
-                            <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
-                            <input type="text" class="form-control w-50" name="filter_name">
-                            <button type="submit" class="save_btnn">Save Filter</button>
-                        </div>
-                
-                        <div class="mt-3">
-                            <button type="reset" class="cl_btn">Clear Filter</button>
-                            <button type="submit" class="fil_btn">Quick Filter</button>
-                        </div>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <h6>Filter Name:</h6>
+                              <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
+                              <div class="row">
+                                  <div class="col-6">
+                                      <input type="text" class="form-control" name="filter_name">
+                                  </div>
+                                  <div class="col-6">
+                                      <button type="submit" class="save_btnn mt-0">Save Filter</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4 mt-4">
+                              <button type="reset" class="cl_btn ">Clear Filter</button>
+                              <button type="submit" class="fil_btn">Quick Filter</button>
+                          </div>
+                      </div>
                     </div>
                 </form>
                 

@@ -109,7 +109,7 @@
 </div>
 <!--filter-->
 <div class="modal fade" id="filterAircraftModal" tabindex="-1" aria-labelledby="filterAircraftModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="filterAircraftModalLabel">Filter Aircraft Types</h5>
@@ -151,17 +151,24 @@
                             <input type='text'></div>
                     </div>
                     </div>
-                    <div class="mt-5">
-                        <h6>Filter Name:</h6>
-                        <p>If you wish to save this filter,Write the name of the filter here and click'Save filter'</p>
-                        <input type="text" class="w-50" >
-                    
-                    <button type="submit" class="save_btnn">Save Filter</button>
-                </div>
-                <div>
-                    <button type="submit" class="cl_btn">Clear Filter</button>
-                    <button type="submit" class="fil_btn">Quick Filter</button>
-                </div>
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            <h6>Filter Name:</h6>
+                            <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" name="filter_name">
+                                </div>
+                                <div class="col-6">
+                                    <button type="submit" class="save_btnn mt-0">Save Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mt-4 ">
+                            <button type="reset" class="cl_btn ">Clear Filter</button>
+                            <button type="submit" class="fil_btn">Quick Filter</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -146,6 +146,8 @@ a{
 .nav__icon{
   font-size: 1.25rem;
 }
+/*nav-dropdown*/
+
 
 /*Show navbar movil*/
 .show{
@@ -380,4 +382,13 @@ tbody{
 }
 .line{
   border: 1px solid rgb(214, 212, 212);
+}
+
+.modal-dialog-custom {
+  max-width: 100%; /* Adjust the width as needed */
+  width: 100%;
+}
+
+.l-head{
+font-size: 2px;
 }

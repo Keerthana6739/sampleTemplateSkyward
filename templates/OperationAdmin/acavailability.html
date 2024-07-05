@@ -24,8 +24,9 @@
     </div>
 
     <!-- Table -->
-    <table class="table table-hover">
-        <thead >
+    <div class="table-responsive">
+        <table id="tableID" class="display table table-hover">
+          <thead class="bg-main text-dark">
             <tr>
                 
                 <th>Active</th>
@@ -34,24 +35,22 @@
                 <th>From</th>
                 
                 <th>To</th>
-               
-               
             </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
             <tr data-toggle="modal" data-target="#editAcAvailabilityCellModal" data-id="1" data-name="AcAvailabilityload A" data-active="True">
-               <td>1</td>
-               <td>1.00</td>
-               <td>fdsds</td>
-               <td>fda</td>
-               <td>3</td>
-               
-            </tr>
-           
-           
-        </tbody>
-    </table>
-
+                <td>1</td>
+                <td>1.00</td>
+                <td>fdsds</td>
+                <td>fda</td>
+                <td>3</td>
+                
+             </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  
     <!-- Create DstRestrict Type Modal -->
 
 
@@ -114,9 +113,10 @@
 
     <!-- Edit Cell Modal -->
     <div class="modal fade" id="editAcAvailabilityCellModal" tabindex="-1" aria-labelledby="editAcAvailabilityCellModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
+
                     <h5 class="modal-title" id="editAcAvailabilityModalLabel">Edit A/C Availability</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -167,9 +167,10 @@
 </div>
 <!--filter-->
 <div class="modal fade" id="filterAcAvailabilityModal" tabindex="-1" aria-labelledby="filterAcAvailabilityModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+
                 <h5 class="modal-title" id="filterAcAvailabilityModalLabel">Filter A/c Availability</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -177,108 +178,113 @@
             </div>
             <div class="modal-body">
                 <form id="filterAcAvailabilityForm" method="get" action="">
-                    <div class="form-group">
+                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="filterActiveStatus1" class="col-form-label col-2">Active</label>
                         <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterActiveStatus1" name="active_status1">
+                           
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
                                     <option value="">equal</option>
                                     <option value="true">Active</option>
                                     <option value="false">Inactive</option>
                                 </select>
                             </div>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">All</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                        </div>
-                
-                        <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">A/C</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">equal</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">All</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                        </div></div>
-                        <div class="row mb-3">
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Type</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">equal</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <select class="form-control" id="filterFromDateSort" name="sort_by2">
-                                    <option value="">All</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                        </div></div>
-                        <div class="row mb-3">
-                            <label for="filterSortBy1" class="col-form-label col-4"> From</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterSortBy1" name="sort_by1">
-                                    <option value="">equal</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <input type="date" id="filterFromDate" name="from_date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="filterSortBy1" class="col-form-label col-4">To</label>
-                            <div class="col-4">
-                                <select class="form-control" id="filterSortBy1" name="sort_by1">
-                                    <option value="">equal</option>
-                                    <option value="name_asc">Name (A-Z)</option>
-                                    <option value="name_desc">Name (Z-A)</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <input type="date" id="filterFromDate" name="from_date" class="form-control">
-                            </div>
-                        </div>
-                
-                    
                             
-                       
-                      
-                      
-                   
-                    
-                        
-                
-                        <div class="mt-5">
-                            <h6>Filter Name:</h6>
-                            <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
-                            <input type="text" class="form-control w-50" name="filter_name">
-                            <button type="submit" class="save_btnn">Save Filter</button>
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
+                                    <option value="">All</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
                         </div>
-                
-                        <div class="mt-3">
-                            <button type="reset" class="cl_btn">Clear Filter</button>
-                            <button type="submit" class="fil_btn">Quick Filter</button>
+                        <label for="filterActiveStatus1" class="col-form-label col-4">A/C</label>
+                        <div class="row mb-3">
+                            
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
+                                    <option value="">equal</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
+                                    <option value="">All</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label for="filterActiveStatus1" class="col-form-label col-4">Type</label>
+                        <div class="row mb-3">
+                           
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
+                                    <option value="">equal</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterFromDateSort" name="sort_by2">
+                                    <option value="">All</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                        </div></div>
+                        <div class="col-md-6">
+                            <label for="filterSortBy1" class="col-form-label col-4"> From</label>
+                        <div class="row mb-3">
+                           
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterSortBy1" name="sort_by1">
+                                    <option value="">equal</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <input type="date" id="filterFromDate" name="from_date" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                        <label for="filterSortBy1" class="col-form-label col-4">To</label>
+                        <div class="row mb-3">
+                           
+                            <div class="col-6">
+                                <select class="form-control form-control-sm" id="filterSortBy1" name="sort_by1">
+                                    <option value="">equal</option>
+                                    <option value="name_asc">Name (A-Z)</option>
+                                    <option value="name_desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                            <div class="col-6 ">
+                                <input type="date" id="filterFromDate" name="from_date" class="form-control form-control-sm">
+                            </div></div>
+                        </div></div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Filter Name:</h6>
+                                <p>If you wish to save this filter, write the name of the filter here and click 'Save filter'</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" name="filter_name">
+                                    </div>
+                                    <div class="col-6">
+                                        <button type="submit" class="save_btnn mt-0">Save Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button type="reset" class="cl_btn ">Clear Filter</button>
+                                <button type="submit" class="fil_btn">Quick Filter</button>
+                            </div>
                         </div>
                     </div>
                 </form>
-                
-                
             </div>
         </div>
     </div>
