@@ -14,6 +14,10 @@ from django.utils import timezone
 
 
 # Create your views here.
+
+def login(request):
+    return render(request, 'login.html')
+
 def dashboard(request):
     return render(request, 'Administration/dashboard.html')
 

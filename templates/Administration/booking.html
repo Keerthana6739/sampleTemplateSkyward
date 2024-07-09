@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block body_block %}
 {% load static %}
@@ -181,7 +182,8 @@
             <div class="modal-body">
                 <form id="filterDstRestrictForm" method="get" action="">
                     <div class="row">
-                        <div class="col-md-8">
+                        <!-- Left side content, initially full width (12 columns) -->
+                        <div class="col-md-12" id="mainContent">
                             <div class="">
                                 <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
                                 <div class="row">
@@ -226,29 +228,49 @@
                                             <input type="text" class="form-control" name="filter_name">
                                         </div>
                                         <div class="col-6">
-                                            <button type="button" class=" save_btnn mt-0" onclick="toggleExtraContent()">Save Filter</button>
+                                            <button type="submit" class="save_btnn mt-0">Save Filter</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="reset" class=" cl_btn">Clear Filter</button>
-                                    <button type="submit" class="fil_btn">Quick Filter</button>
+                                    <button type="reset" class="cl_btn">Clear Filter</button>
+                                    <button type="reset" class="fil_btn"> Filter</button>
+                                    <!-- No need for Quick Filter button in this context -->
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div id="extraContent" style="display: none;">
-                               <div class="row">
-                                <h6>Sample1</h6> 
-                                <button type="reset" class="apply_btn">Apply</button>
-                                <button type="submit" class="del_btn">Delete</button>
-                               </div>
+            
+                        <!-- Right side content, initially hidden (col-md-4) -->
+                        <div class="col-md-4 text-center" id="extraContent" style="display: none;border: 2px solid rgb(243, 243, 243); border-radius: 10px;padding: 5px;">
+                           <div class="container-fluid" >
+                            <div class="row ">
+                                <h6 class="mt-2">Sample1</h6>
+                                <button type="button" class="apply_btn ml-2">Apply</button>
+                                <button type="button" class="del_btn">Delete</button>
                             </div>
+                           </div>
                         </div>
                     </div>
-                    
                 </form>
             </div>
+            
+            <script>
+                document.getElementById('filterDstRestrictForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent form submission
+                    var mainContent = document.getElementById('mainContent');
+                    var extraContent = document.getElementById('extraContent');
+                    
+                    if (mainContent.classList.contains('col-md-12')) {
+                        mainContent.classList.remove('col-md-12');
+                        mainContent.classList.add('col-md-8');
+                    }
+                    
+                    extraContent.style.display = 'block'; // Show extra content on the right
+                });
+            </script>
+            
+            
+            
         </div>
     </div>
 </div>
@@ -258,16 +280,7 @@
 {% endblock %}
 {% block script_block %}
 
-<script>
-    function toggleExtraContent() {
-        var extraContent = document.getElementById('extraContent');
-        if (extraContent.style.display === 'none') {
-            extraContent.style.display = 'block';
-        } else {
-            extraContent.style.display = 'none';
-        }
-    }
-</script>
+
     
     
 {% endblock %}
