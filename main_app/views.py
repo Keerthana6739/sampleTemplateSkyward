@@ -21,30 +21,97 @@ def users(request):
     return render(request, 'Administration/users.html')
 
 def ref(request):
-    return render(request, 'Administration/ref.html')
+    form=ReftemplateForm()
+    return render(request, 'Administration/ref.html',{'form':form})
+def refcreate(request):
+    form=ReftemplateForm()
+    return render(request, 'Administration/refcreate.html',{'form':form})
+
+def refedit(request):
+    form=ReftemplateForm()
+    return render(request, 'Administration/refedit.html',{'form':form})
+
+def reft(request):
+    form=ReftlangmasterForm()
+    return render(request, 'Administration/reft.html',{'form':form})
 
 def tc(request):
-    return render(request, 'Administration/tc.html')
+    form=TermsAndConditionsForm()
+    return render(request, 'Administration/tc.html',{'form':form})
 
 def manifest(request):
-    return render(request, 'Administration/manifest.html')
+    form=ManifestTemplateForm()
+    return render(request, 'Administration/manifest.html',{'form':form})
+
+def manifestcreate(request):
+    form = ManifestTemplateForm()
+    form1 = PrintOutDetailsManifestForm()
+    form2 = PrintOutBottomManifestForm()
+    combined_forms = {
+        'form': form,
+        'printout': form1,
+        'printbottom': form2,
+    }
+    return render(request, 'Administration/manifestcreate.html', combined_forms)
+
+def manifestedit(request):
+    form = ManifestTemplateForm()
+    form1 = PrintOutDetailsManifestForm()
+    form2 = PrintOutBottomManifestForm()
+    combined_forms = {
+        'form': form,
+        'printout': form1,
+        'printbottom': form2,
+    }
+    return render(request, 'Administration/manifestedit.html', combined_forms)
 
 def sms(request):
-    return render(request, 'Administration/sms.html')
+    form=SmstemplateForm()
+    return render(request, 'Administration/sms.html',{'form':form})
+def usergroup(request):
+    form=UsergroupmasterForm()
+    return render(request, 'Administration/usergroup.html',{'form':form})
 
 def booking(request):
-    return render(request, 'Administration/booking.html')
+    form=BookingpurposeForm()
+    return render(request, 'Administration/booking.html',{'form':form})
 
 def service(request):
-    return render(request, 'Administration/service.html')
+    form=ServicessuppliersForm()
+    return render(request, 'Administration/service.html',{'form':form})
+
+def servicetypes(request):
+    form=ServicestypesForm()
+    return render(request, 'Administration/servicetypes.html',{'form':form})
+
+def reports(request):
+    form= ReportsupermissionsForm()
+    return render(request, 'Administration/reports.html',{'form':form})
+def reftwords(request):
+ 
+    form=Reftwords()
+    return render(request, 'Administration/reftwords.html',{'form':form})
+
+def scheduled(request):
+    form= ScheduledreportsForm()
+    return render(request, 'Administration/scheduled.html',{'form':form})
+
+def station(request):
+    form= StationvatForm()
+    return render(request, 'Administration/station.html',{'form':form})
+
+def users(request):
+    return render(request, 'Administration/users.html')
 
 def createuser(request):
     return render(request, 'Administration/createuser.html')
+def edituser(request):
+    return render(request, 'Administration/editreuser.html')
 
 def permission(request):
     return render(request, 'Administration/permission.html')
 
-def operationcreate(request):
+def toperationcreae(request):
     form=AircraftTypeForm()
     return render(request, 'OperationAdmin/operationcreate.html',{'form':form})
 

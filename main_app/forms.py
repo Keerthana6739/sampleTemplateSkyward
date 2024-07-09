@@ -532,9 +532,7 @@ class DestinationForm(forms.Form):
         required=False,
         widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-    send_crew_msg = forms.BooleanField(
-        required=False,
-        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    send_crew_msg = forms.BooleanField(required=False,widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
     )
     use_icao_code_with_flight_number = forms.BooleanField(
         required=False,
@@ -582,6 +580,776 @@ class DestinationForm(forms.Form):
     )
     return_destination = forms.ChoiceField(
         choices=[('', 'Select Return Destination')],
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
+class ReftemplateForm(forms.Form):
+    service_choices = [
+        ('All_service', 'All service'),
+        ('Flights_and_Open_Service', 'Flights and Open Service'),
+        ('Flights_Only', 'Flights Only'),
+        ('Flights, Charters and Open Service', 'Flights, Charters and Open Service'),
+        ('Flights, Charters, Open Service and Ancillaries', 'Flights, Charters, Open Service and Ancillaries'),
+        ('Flights, Products and Hotels', 'Flights, Products and Hotels'),
+    ]
+    
+    name = forms.CharField(max_length=250, required=True, widget=forms.TextInput(attrs={"class": "form-control "}))
+    language = forms.CharField(max_length=100, required=True, widget=forms.TextInput(attrs={"class": "form-control form-control-sm "}))
+    title_e_mail_subject = forms.CharField(max_length=250, required=True, widget=forms.TextInput(attrs={"class": "form-control form-control-sm"}))
+    show_services = forms.ChoiceField(choices=service_choices, required=True, widget=forms.Select(attrs={"class": "form-control"}))
+    active = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    show_on_agents_crs = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    show_only_to_ticketed_pnr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    show_to_agent_pnr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    show_to_direct_cust_pnr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    agent_logo = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    customer_agent_details = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    company_logo = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    company_details = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    qr_code = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    personal_tickets = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control form-control-sm"}))
+    intro_text = forms.CharField(max_length=500, required=False, widget=forms.Textarea(attrs={"class": "form-control"}))
+    title_note = forms.CharField(max_length=250, required=False, widget=forms.TextInput(attrs={"class": "form-control"}))
+    services_with_pricing = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    services_without_pricing = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    total = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    fare_basis = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    vat = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    company_currency = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    class_code = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    class_name = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    currency_name = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    check_in_status = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    exchange_rate = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    checkin_hhmm = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    gds_rloc_instead_of_pnr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_rack = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    baggage = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    checkin = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    pnr_remarks = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    website_link = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    passengers = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    flight_rules_and_notifications = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    tax_breakdown = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    fare_breakdown = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_ptl = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    pnr_name = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_via = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    ssr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_due = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    pnr_log = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_ttl = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    receipts = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    invoices = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    deposits = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    vouchers_info = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    ticket_terms = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    environment = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    e_ticket = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    accommodations = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    terminals = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    full_pax_details = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    seats = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    cabin_class = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    short_pnr = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    show_etkt = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    hide_timings_for_non_flights = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    cargo_tracking_code = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    gate_closing = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    baggage_drop = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={"class": "form-control"}))
+    footer_text = forms.CharField(max_length=500, required=False, widget=forms.Textarea(attrs={"class": "form-control"}))
+    attachment_1 = forms.CharField(max_length=250, required=False, widget=forms.TextInput(attrs={"class": "form-control"}))
+    attachment_2 = forms.CharField(max_length=250, required=False, widget=forms.TextInput(attrs={"class": "form-control"}))
+
+
+
+
+class ReftlangmasterForm(forms.Form):
+    active = forms.BooleanField(initial=False, required=False)
+    language_name = forms.CharField(max_length=250, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    language_code = forms.CharField(max_length=250, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+
+
+class TermsAndConditionsForm(forms.Form):
+    individual = forms.BooleanField(
+        label='Individual',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input','style': 'margin-left: 10px;'})
+    )
+    active = forms.BooleanField(
+        label='Active',
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input','style': 'margin-left: 10px;'})
+    )
+    default = forms.BooleanField(
+        label='Default',
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input','style': 'margin-left: 10px;'})
+    )
+    language = forms.CharField(
+        label='Language',
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+    term_and_condition_text = forms.CharField(
+        label='Term and Condition Text',
+        widget=forms.Textarea(attrs={'class': 'form-control form-control-sm', 'rows': 4}),
+        required=False
+    )
+
+
+class ManifestTemplateForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    name = forms.CharField(
+        label='Name *',  # Add asterisk to label
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': 'required'})
+    )
+    code = forms.CharField(
+        label='Code *',  # Add asterisk to label
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': 'required'})
+    )
+    header_subject = forms.CharField(
+        label='Header/Subject *',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': 'required'})
+    )
+    filter_with_check_in_status = forms.CharField(
+        label='Filter with Check-In Status ',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+    show_only_ticketed = forms.BooleanField(
+        label='Show Only Ticketed *',
+        initial=False,
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input', 'required': 'required'})
+    )
+    group_by = forms.CharField(
+        label='Group By *',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': 'required'})
+    )
+    filter_with_service_status = forms.CharField(
+        label='Filter with Service Status *',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm', 'required': 'required'})
+    )
+    sub_header = forms.CharField(
+        label='Sub Header',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+
+
+class PrintOutDetailsManifestForm(forms.Form):
+    manifest = forms.ChoiceField(
+        label='Manifest',
+        choices=[],  # Populate this with the appropriate choices
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
+    )
+    num = forms.BooleanField(
+        label='Num',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    user_class = forms.BooleanField(
+        label='User Class',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    check_in_status = forms.BooleanField(
+        label='Check-in Status',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    seat = forms.BooleanField(
+        label='Seat',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    date_of_birth = forms.BooleanField(
+        label='Date of Birth',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    gender = forms.BooleanField(
+        label='Gender',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    class_allowance = forms.BooleanField(
+        label='Class Allowance',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    passport_issue_country = forms.BooleanField(
+        label='Passport Issue Country',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_weight = forms.BooleanField(
+        label='Pax Weight',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    trip_type = forms.BooleanField(
+        label='Trip Type',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    boarding_tag_color = forms.BooleanField(
+        label='Boarding Tag Color',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_name = forms.BooleanField(
+        label='Pax Name',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    a_c = forms.BooleanField(
+        label='A/C',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    title = forms.BooleanField(
+        label='Title',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    e_mail = forms.BooleanField(
+        label='E-mail',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cargo_weight = forms.BooleanField(
+        label='Cargo Weight',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_document_code = forms.BooleanField(
+        label='Show Document Code',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_ancillary_services = forms.BooleanField(
+        label='Show Ancillary Services',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    breakdown_block = forms.BooleanField(
+        label='Breakdown Block',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    passenger_remark = forms.BooleanField(
+        label='Passenger Remark',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    baggage_tag = forms.BooleanField(
+        label='Baggage Tag',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pnr_ref = forms.BooleanField(
+        label='PNR Ref',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    splitfirstlast = forms.BooleanField(
+        label='Split First/Last',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    tkt_ref = forms.BooleanField(
+        label='TKT Ref',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    nop = forms.BooleanField(
+        label='NOP',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    passport_expiry = forms.BooleanField(
+        label='Passport Expiry',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    breakrows = forms.BooleanField(
+        label='Break Rows',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_ancillary_summary = forms.BooleanField(
+        label='Show Ancillary Summary',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_check_in_summary = forms.BooleanField(
+        label='Show Check-in Summary',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_coupons = forms.BooleanField(
+        label='Show Coupons',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    bgg_weight = forms.BooleanField(
+        label='BGG Weight',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pnr_status = forms.BooleanField(
+        label='PNR Status',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    b_pass = forms.BooleanField(
+        label='B Pass',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pay_ci = forms.BooleanField(
+        label='Pay CI',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    origin = forms.BooleanField(
+        label='Origin',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    doc_number = forms.BooleanField(
+        label='Doc Number',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_ssr_totals = forms.BooleanField(
+        label='Show SSR Totals',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_ssr_remarks = forms.BooleanField(
+        label='Show SSR Remarks',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_ssr = forms.BooleanField(
+        label='Show SSR',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    phone = forms.BooleanField(
+        label='Phone',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    place_of_birth = forms.BooleanField(
+        label='Place of Birth',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    yyyymmdd_dates = forms.BooleanField(
+        label='YYYYMMDD Dates',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    show_pnr_user_name_in_origin = forms.BooleanField(
+        label='Show PNR User Name in Origin',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    nationality = forms.BooleanField(
+        label='Nationality',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pnr_remarks = forms.BooleanField(
+        label='PNR Remarks',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    crew_on_top = forms.BooleanField(
+        label='Crew on Top',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_body_temp = forms.BooleanField(
+        label='Pax Body Temp',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    fare_basis = forms.BooleanField(
+        label='Fare Basis',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cow_weight = forms.BooleanField(
+        label='Cow Weight',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cow_nop = forms.BooleanField(
+        label='Cow NOP',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+
+
+class PrintOutBottomManifestForm(forms.Form):
+    manifest = forms.ChoiceField(
+        label='Manifest',
+        choices=[],  # Populate this with the appropriate choices
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
+    )
+    pax_total = forms.BooleanField(
+        label='Pax Total',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_picks = forms.BooleanField(
+        label='Pax Picks',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_drops = forms.BooleanField(
+        label='Pax Drops',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    nop_total = forms.BooleanField(
+        label='NOP Total',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    bgg_weight_total = forms.BooleanField(
+        label='BGG Weight Total',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pax_weight_total = forms.BooleanField(
+        label='Pax Weight Total',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    pnr_on_rq = forms.BooleanField(
+        label='PNR on RQ',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    selected_crew = forms.BooleanField(
+        label='Selected Crew',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cargo_list = forms.BooleanField(
+        label='Cargo List',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    always_show_cargo = forms.BooleanField(
+        label='Always Show Cargo',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    remarks = forms.BooleanField(
+        label='Remarks',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    text_crew = forms.BooleanField(
+        label='Text Crew',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    fuel = forms.BooleanField(
+        label='Fuel',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    routing = forms.BooleanField(
+        label='Routing',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cow_weight = forms.BooleanField(
+        label='Cow Weight',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    cow_nop = forms.BooleanField(
+        label='Cow NOP',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    signature = forms.BooleanField(
+        label='Signature',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    footer_text = forms.CharField(
+        label='Footer Text',
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control form-control-sm'})
+    )
+
+class BookingpurposeForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input', 'style': 'margin-left: px;'})
+    )
+    name = forms.CharField(
+        label='Name',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+
+
+
+class ServicessuppliersForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input','style': 'margin-left: px;'})
+    )
+    supplier_name = forms.CharField(
+        label='Supplier Name',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+
+class ServicestypesForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    type_name = forms.CharField(
+        label='Type Name',
+        max_length=250,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+    income_code = forms.CharField(
+        label='Income Code',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+    service_template = forms.CharField(
+        label='Service Template',
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control form-control-sm'})
+    )
+
+
+
+class Reftwords(forms.Form):
+    
+    translated = forms.CharField(
+        label='Translated',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+   
+    default_language = forms.ChoiceField(
+        label='Default(English)',
+        choices=[('english', 'English')],  # Add more languages as needed
+        initial='english',
+        widget=forms.Select(attrs={'class': 'form-control form-control-sm'})
+    )
+   
+    language = forms.CharField(
+        label='Language',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm'})
+    )
+
+class ScheduledreportsForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+
+    user = forms.CharField(
+        label='User',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    report = forms.CharField(
+        label='Report',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    time_of_day = forms.ChoiceField(
+        label='Time of Day',
+        choices=[
+            ('morning', 'Morning'),
+            ('afternoon', 'Afternoon'),
+            ('evening', 'Evening'),
+        ],
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    frequency = forms.ChoiceField(
+        label='Frequency',
+        choices=[
+            ('daily', 'Daily'),
+            ('weekly', 'Weekly'),
+            ('monthly', 'Monthly'),
+        ],
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    timing = forms.CharField(
+        label='Timing',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+   
+    email = forms.EmailField(
+        label='Email To',
+        required=False,
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+
+    sendto = forms.EmailField(
+        label='Send To',
+        required=False,
+        widget=forms.EmailInput(attrs={'class': 'form-control'})
+    )
+
+
+
+class StationvatForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    vat = forms.CharField(
+        label='VAT',
+        max_length=250,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    origin = forms.CharField(
+        label='Origin',
+        max_length=250,
+        required=False,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    station_name = forms.CharField(
+        label='Station Name',
+        max_length=250,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+
+class SmstemplateForm(forms.Form):
+    LANGUAGE_CHOICES = (
+    ('open', 'Open'),
+    # Add other language choices as needed
+)
+
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    send_sms_on_ff_spend = forms.BooleanField(
+        label='Send SMS on FF Spend',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    send_sms_on_ff_earn = forms.BooleanField(
+        label='Send SMS on FF Earn',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    name = forms.CharField(
+        label='Name',
+        max_length=250,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    message = forms.CharField(
+        label='Message',
+        max_length=250,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    language = forms.ChoiceField(
+        label='Language',
+        choices=LANGUAGE_CHOICES,
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+   
+class UsergroupmasterForm(forms.Form):
+    active = forms.BooleanField(
+        label='Active',
+        required=False,
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
+    permission_type_id = forms.ChoiceField(
+        label='Permission Type',
+        choices=[(1, 'Type 1'), (2, 'Type 2')],  # Replace with actual choices
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    group_name = forms.CharField(
+        label='Group Name',
+        max_length=250,
+        required=True,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+
+class ReportsupermissionsForm(forms.Form):
+    REPORT_CHOICES = [
+        ('report1', 'Report 1'),
+        ('report2', 'Report 2'),
+        ('report3', 'Report 3'),
+    ]
+
+    USER_CHOICES = [
+        ('user1', 'User 1'),
+        ('user2', 'User 2'),
+        ('user3', 'User 3'),
+    ]
+
+    report = forms.ChoiceField(
+        label='Report',
+        choices=REPORT_CHOICES,
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    user = forms.ChoiceField(
+        label='User',
+        choices=USER_CHOICES,
         required=False,
         widget=forms.Select(attrs={'class': 'form-control'})
     )

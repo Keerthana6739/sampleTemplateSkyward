@@ -73,6 +73,8 @@ a{
   color: var(--rose-color);
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .header__img{
@@ -87,65 +89,107 @@ a{
 .header__img img{
   width: 40px;
 }
-
-/*===== NAV =====*/
-.l-navbar{
-  position: fixed;
-  top: 0;
-  left: -30%;
-  width: var(--nav-width);
-  height: 100vh;
-  background-color: var(--white-color);
-  padding: .5rem 1rem 0 0;
-  transition: .5s;
-  z-index: var(--z-fixed);
-}
-
-.nav{
-  height: 100%;
+.arrow-and-text {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  background-color: var(--white-color);
-}
-
-.nav__logo, .nav__link{
-  display: grid;
-  grid-template-columns: max-content max-content;
   align-items: center;
-  column-gap: 1rem;
-  padding: .1rem 0 .1rem 1.5rem;
+  margin-left: 10px; /* Adjust spacing as needed */
 }
 
-.nav__logo{
-  margin-bottom: 2rem;
+.header-head {
+  margin: 0 0 0 10px; /* Add margin to the left to separate the text from the icon */
+  font-size: 1.25rem; /* Adjust font size as needed */
 }
 
-.nav__logo-icon{
-  font-size: 1.25rem;
-  color: var(--rose-color);
+.emoji-hand {
+  font-size: 1.25em; /* Adjust emoji size as needed */
+  color: inherit; /* Inherit color from the parent */
 }
 
-.nav__logo-name{
-  color: var(--rose-color);
-  font-weight: 700;
-}
+  /*===== NAV =====*/
+        .l-navbar {
+          position: fixed;
+          top: 0;
+          left: 0;  /* Adjusted for better positioning */
+          width: var(--nav-width);
+          height: 100vh;
+          background-color: var(--white-color);
+          padding: .5rem 1rem 0 0;
+          transition: .5s;
+          z-index: var(--z-fixed);
+        }
 
-.nav__link{
-  position: relative;
-  color: var(--black-color);
-  margin-bottom: 1.5rem;
-  transition: .3s;
-}
+        .nav {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+          background-color: var(--white-color);
+        }
 
-.nav__link:hover{
-  color: var(--rose-color);
-}
+        .nav__logo, .nav__link {
+          display: grid;
+          grid-template-columns: max-content max-content;
+          align-items: center;
+          column-gap: 1rem;
+          padding: .1rem 0 .1rem 1.5rem;
+        }
 
-.nav__icon{
-  font-size: 1.25rem;
-}
+        .nav__logo {
+          margin-bottom: 2rem;
+        }
+
+        .nav__logo-icon {
+          font-size: 1.25rem;
+          color: var(--rose-color);
+        }
+
+        .nav__logo-name {
+          color: var(--rose-color);
+          font-weight: 700;
+        }
+
+        .nav__link {
+          position: relative;
+          color: var(--black-color);
+          margin-bottom: 1.5rem;
+          transition: .3s;
+        }
+
+        .nav__link:hover {
+          background-color: var(--rose-color);
+          color: var(--white-color);
+        }
+
+        .nav__icon {
+          font-size: 1.25rem;
+        }
+
+        .wrapper-section {
+          margin-left: var(--nav-width);
+          padding: 1rem;
+          /* Other styles as needed */
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          z-index: 1050;
+          display: none;
+          float: left;
+          min-width: 10rem;
+          padding: .5rem 0;
+          margin: 0;
+          font-size: 1rem;
+          color:var(--rose-color);
+          text-align: left;
+          list-style: none;
+          background-color:white;
+          background-clip: padding-box;
+          border: 1px solid rgba(0, 0, 0, .15);
+          border-radius: .25rem;
+      }
+      
+      
 /*nav-dropdown*/
 
 
@@ -234,23 +278,7 @@ a{
 
 }
 
-/* Table Button start */
-.cust {
-  background-color: var(--rose-color) !important; /* Example primary background color */
-  color: #fff !important; /* Example text color */
-  border: none;
-  padding: 1px 5px !important;
-  cursor: pointer;
-  border-radius: 4px !important;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
 
-/* Hover effect */
-.cust:hover {
-  background-color: #0056b3; /* Darker shade of primary color */
-}
-/* Table Button End */
 
 
 /* Create user*/
@@ -292,8 +320,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width:15px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -370,6 +397,9 @@ a{
 thead{
   background-color: var(--rose-color);
   color: white;
+
+  font-weight: 100 !important;
+  
 }
 tbody{
   background-color: white;
@@ -391,4 +421,8 @@ tbody{
 
 .l-head{
 font-size: 2px;
+}
+.required-field::after {
+  content: " *" !important;
+  color: red !important;
 }

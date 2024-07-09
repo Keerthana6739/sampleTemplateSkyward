@@ -25,9 +25,8 @@
         <thead>
             <tr>
                 <th>Active</th>
-                <th>VAT</th>
-                <th>Station Name</th>
-                <th>Origin</th>
+                
+                <th>Group Name</th>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +35,7 @@
                 <td>
                    dtghy
                 </td>
-                <td>ftft</td>
-                <td>ede</td>
+                
             </tr>
         </tbody>
     </table>
@@ -47,44 +45,30 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="createReportPermissionModalLabel">Create</h5>
+                    <h5 class="modal-title" id="createReportPermissionModalLabel">Create </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                  <form method="post">
-                    {% csrf_token %}
-                    <div class="ml-4">
-                      {{ form.active }}
-                        {{ form.active.label_tag }}
-                        
-                    </div>
-                    <div class="ml-4">
-                      {{ form.send_sms_on_ff_spend }}
-                        {{ form.send_sms_on_ff_spend.label_tag }}
-                        
-                    </div>
-                    <div class="ml-4">
-                      {{ form.send_sms_on_ff_earn }}
-                        {{ form.send_sms_on_ff_earn.label_tag }}
-                        
-                    </div>
-                    <div class="">
-                        {{ form.name.label_tag }}
-                        {{ form.name }}
-                    </div>
-                    <div class="">
-                        {{ form.message.label_tag }}
-                        {{ form.message }}
-                    </div>
-                    <div class="">
-                        {{ form.language.label_tag }}
-                        {{ form.language }}
-                    </div>
-                    <button type="submit" class="save_btnn">Save</button>
-                </form>
-                
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="ml-4">
+                            {{ form.active }}
+                            {{ form.active.label_tag }}
+                            
+                        </div>
+                        <div class="">
+                            {{ form.permission_type_id.label_tag }}
+                            {{ form.permission_type_id }}
+                        </div>
+                        <div class="">
+                            {{ form.group_name.label_tag }}
+                            {{ form.group_name }}
+                        </div>
+                        <button type="submit" class="save_btnn">Save</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -95,43 +79,30 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editReportPermissionModalLabel">Edit Report Permission</h5>
+                    <h5 class="modal-title" id="editReportPermissionModalLabel">Edit</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                  <form method="post">
-                    {% csrf_token %}
-                    <div class="ml-4">
-                      {{ form.active }}
-                        {{ form.active.label_tag }}
-                        
-                    </div>
-                    <div class="ml-4">
-                      {{ form.send_sms_on_ff_spend }}
-                        {{ form.send_sms_on_ff_spend.label_tag }}
-                        
-                    </div>
-                    <div class="ml-4">
-                      {{ form.send_sms_on_ff_earn }}
-                        {{ form.send_sms_on_ff_earn.label_tag }}
-                        
-                    </div>
-                    <div class="">
-                        {{ form.name.label_tag }}
-                        {{ form.name }}
-                    </div>
-                    <div class="">
-                        {{ form.message.label_tag }}
-                        {{ form.message }}
-                    </div>
-                    <div class="">
-                        {{ form.language.label_tag }}
-                        {{ form.language }}
-                    </div>
-                    <button type="submit" class="save_btnn">Save</button>
-                </form>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="ml-4">
+                            {{ form.active }}
+                            {{ form.active.label_tag }}
+                            
+                        </div>
+                        <div class="">
+                            {{ form.permission_type_id.label_tag }}
+                            {{ form.permission_type_id }}
+                        </div>
+                        <div class="">
+                            {{ form.group_name.label_tag }}
+                            {{ form.group_name }}
+                        </div>
+                        <button type="submit" class="save_btnn">Save</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -150,57 +121,10 @@
                 <div class="modal-body">
                     <form id="filterDstRestrictForm" method="get" action="">
                         <div class="">
-                          <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
-                          <div class="row">
                            
-                            <div class="col-4">
-                                <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
-                                    <option value="">equal</option>
-                                    <option value="true">Active</option>
-                                    <option value="false">Inactive</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <select class="form-control form-control-sm" id="filterActiveStatus2" name="active_status2">
-                                    <option value="">All</option>
-                                    <option value="true">Active</option>
-                                    <option value="false">Inactive</option>
-                                </select>
-                               
-                            </div>
-                        </div>
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Message</label>
-                            <div class="row ">
-                               
-                                <div class="col-4">
-                                    <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
-                                        <option value="">equal</option>
-                                        <option value="true">Active</option>
-                                        <option value="false">Inactive</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <input type="text" id="filterNumber" name="number" class="form-control form-control-sm">
-                                </div>
-                            </div>
-                           
-                            </div>
                             
-                             <label for="filterActiveStatus1" class="col-form-label col-4">Name</label>
-                            <div class="row ">
-                               
-                                <div class="col-4">
-                                    <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
-                                        <option value="">equal</option>
-                                        <option value="true">Active</option>
-                                        <option value="false">Inactive</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <input type="text" id="filterNumber" name="number" class="form-control form-control-sm">
-                                </div>
-                            </div>
-                            <label for="filterActiveStatus1" class="col-form-label col-4">Language</label>
+                            
+                            <label for="filterActiveStatus1" class="col-form-label col-4">Active</label>
                             <div class="row">
                                
                                 <div class="col-4">
@@ -219,6 +143,21 @@
                                    
                                 </div>
                             </div>
+                             <label for="filterActiveStatus1" class="col-form-label col-4">Group Name</label>
+                            <div class="row ">
+                               
+                                <div class="col-4">
+                                    <select class="form-control form-control-sm" id="filterActiveStatus1" name="active_status1">
+                                        <option value="">like</option>
+                                        <option value="true">Active</option>
+                                        <option value="false">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" id="filterNumber" name="number" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                          
                        
                         
                             

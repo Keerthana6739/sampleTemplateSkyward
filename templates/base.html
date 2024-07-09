@@ -17,78 +17,88 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Skyward Express</title>
 
-    <style>
-        .dropdown-menu-right {
-            right: 0;
-            left: auto;
-        }
-    </style>
+  
 </head>
 <body id="body-pd">
-<header class="header" id="header">
+  <header class="header" id="header">
     <div class="header__toggle">
         <i class='bx bx-menu' id="header-toggle"></i>
+        <div class="arrow-and-text">
+            <i class="fa fa-arrow-circle-o-left" style="font-size:24px;color:grey;"></i>
+            <h5 class="header-head text-dark">Hello Skyward Express! <span class="emoji-hand">👋</span></h5>
+        </div>
     </div>
-
     <div class="header__img">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl_3C9f184YdepmY8v1NI1b-QnfCQAY9Q5lvrmu6WI3icYqasb9c2RJBPz4hkFJjQJM_c&usqp=CAU" alt="">
     </div>
-
-    <!-- Dropdown -->
-   
 </header>
 
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
-        <div>
-            <a href="#" class="nav__logo">
-                <i class='bx bx-layer nav__logo-icon'></i>
-                <span class="nav__logo-name">Skyward Express</span>
-            </a>
-
-            <div class="nav__list">
-                <a href="#" class="nav__link active">
-                    <i class='bx bx-grid-alt nav__icon' ></i>
-                    <span class="nav__name">Dashboard</span>
-                </a>
-
-                <a href="#" class="nav__link">
-                    <i class='bx bx-user nav__icon' ></i>
-                    <span class="nav__name">Administration</span>
-                </a>
-
-                <a href="#" class="nav__link">
-                    <i class='bx bx-message-square-detail nav__icon' ></i>
-                    <span class="nav__name">Operations</span>
-                </a>
-
-                <a href="#" class="nav__link">
-                    <i class='bx bx-bookmark nav__icon' ></i>
-                    <span class="nav__name">Operations Admin</span>
-                </a>
-
-                <a href="#" class="nav__link">
-                    <i class='bx bx-folder nav__icon' ></i>
-                    <span class="nav__name">Passenger</span>
-                </a>
-
-                <a href="#" class="nav__link">
-                    <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
-                    <span class="nav__name">Crew</span>
-                </a>
-            </div>
-        </div>
-
-        <a href="#" class="nav__link">
-            <i class='bx bx-log-out nav__icon' ></i>
-            <span class="nav__name">Log Out</span>
+      <div>
+        <a href="#" class="nav__logo">
+          <i class='bx bx-layer nav__logo-icon'></i>
+          <span class="nav__logo-name">Skyward Express</span>
         </a>
+
+        <div class="nav__list">
+          <a href="#" class="nav__link active">
+            <i class='bx bx-grid-alt nav__icon'></i>
+            <span class="nav__name">Dashboard</span>
+          </a>
+
+          <a href="#" class="nav__link">
+            <i class='bx bx-user nav__icon'></i>
+            <span class="nav__name">Administration</span>
+          </a>
+
+          <a href="#" class="nav__link">
+            <i class='bx bx-message-square-detail nav__icon'></i>
+            <span class="nav__name">Operations</span>
+          </a>
+          <div class="dropdown">
+            <a class="nav__link dropdown-toggle" href="#" id="operationsAdminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='bx bx-bookmark nav__icon'></i>
+                <span class="nav__name">Operations Admin</span>
+            </a>
+            <div class="dropdown-menu" id="operationsAdminMenu" aria-labelledby="operationsAdminDropdown">
+                <a class="dropdown-item text-dark" href=" {% url 'serviceload' %}">Service Loads</a>
+                
+                <a class="dropdown-item text-dark" href="{% url 'aircraft' %}">Aircraft Type</a>
+                <a class="dropdown-item text-dark" href="{% url 'destination' %}">Destination</a>
+                <a class="dropdown-item text-dark" href="{% url 'savedroutes' %}">Saved Routes</a>
+                <a class="dropdown-item text-dark" href="{% url 'dstnotifications' %}">DST Notifications</a>
+                <a class="dropdown-item text-dark" href="{% url 'dstrestrict' %}">DST Restrict</a>
+                <a class="dropdown-item text-dark" href="{% url 'dsttimeaddon' %}">DST Time Addon</a>
+                <a class="dropdown-item text-dark" href="{% url 'acavailability' %}">A/C Availability</a>
+                <a class="dropdown-item text-dark" href="{% url 'acavailabilitytype' %}">A/C Availability Type</a>
+                <a class="dropdown-item text-dark" href="{% url 'ssr' %}">SSR</a>
+                <a class="dropdown-item text-dark" href="{% url 'aircraft' %}">Aircraft Type</a>
+  </div>
+        </div>
+        
+
+          <a href="#" class="nav__link">
+            <i class='bx bx-folder nav__icon'></i>
+            <span class="nav__name">Passenger</span>
+          </a>
+
+          <a href="#" class="nav__link">
+            <i class='bx bx-bar-chart-alt-2 nav__icon'></i>
+            <span class="nav__name">Crew</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#" class="nav__link">
+        <i class='bx bx-log-out nav__icon'></i>
+        <span class="nav__name">Log Out</span>
+      </a>
     </nav>
-</div>
+  </div>
 
 <div class="wrapper-section">
     {% block body_block %}
-
     {% endblock %}
 </div>
 
@@ -107,53 +117,69 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
-
 <script>
-    $(document).ready(function () {
-        const dataTable = $('#tableID').DataTable({
-            dom: 'Blfrtip', // Add custom buttons to the DataTable
-            buttons: [
-                {
-                    extend: 'copy',
-                    text: '<i class="fa fa-files-o"></i>',
-                    titleAttr: 'Copy',
-                    className: 'cust ',
-                },
-                {
-                    extend: 'csv',
-                    text: '<i class="fa fa-file-text-o"></i>',
-                    titleAttr: 'CSV',
-                    className: 'cust',
-                },
-                {
-                    extend: 'excel',
-                    text: '<i class="fa fa-file-excel-o"></i>',
-                    titleAttr: 'Excel',
-                    className: 'cust ',
-                },
-                {
-                    extend: 'pdf',
-                    text: '<i class="fa fa-file-pdf-o"></i>',
-                    titleAttr: 'PDF',
-                    className: 'cust',
-                },
-                {
-                    extend: 'print',
-                    text: '<i class="fa fa-print"></i>',
-                    titleAttr: 'Print',
-                    className: 'cust',
-                },
-            ],
-            lengthMenu: [[10, 25, 50, 100, 250], [10, 25, 50, 100, 250]],
-        });
-
-        // Update the DataTable entries when the selection changes
-        $('#showEntries').on('change', function () {
-            dataTable.page.len($(this).val()).draw();
-        });
+$(document).ready(function () {
+    const dataTable = $('#tableID').DataTable({
+        dom: 'Blfrtip',
+        buttons: [
+            {
+                extend: 'copy',
+                text: '<i class="fa fa-files-o"></i>',
+                titleAttr: 'Copy',
+                className: 'cust ',
+            },
+            {
+                extend: 'csv',
+                text: '<i class="fa fa-file-text-o"></i>',
+                titleAttr: 'CSV',
+                className: 'cust',
+            },
+            {
+                extend: 'excel',
+                text: '<i class="fa fa-file-excel-o"></i>',
+                titleAttr: 'Excel',
+                className: 'cust ',
+            },
+            {
+                extend: 'pdf',
+                text: '<i class="fa fa-file-pdf-o"></i>',
+                titleAttr: 'PDF',
+                className: 'cust',
+            },
+            {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'Print',
+                className: 'cust',
+            },
+        ],
+        lengthMenu: [[10, 25, 50, 100, 250], [10, 25, 50, 100, 250]],
     });
-</script>
 
+    $('#showEntries').on('change', function () {
+        dataTable.page.len($(this).val()).draw();
+    });
+
+    $('.dropdown-toggle').on('click', function (e) {
+        e.preventDefault();
+
+        var dropdownMenu = $(this).next('.dropdown-menu');
+        var navBar = $(this).closest('.l-navbar');
+        var wrapperSection = $('.wrapper-section');
+
+        // Toggle sidebar visibility
+        navBar.toggleClass('hide-sidebar');
+
+        // Adjust dropdown menu position
+        dropdownMenu.css({
+            'top': $(this).offset().top - wrapperSection.offset().top,
+            'left': $(this).offset().left - wrapperSection.offset().left
+        });
+
+        dropdownMenu.toggle();
+    });
+});
+</script>
 {% block script_block %}
 {% endblock %}
 </body>
